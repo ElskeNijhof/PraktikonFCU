@@ -1,10 +1,11 @@
 import pandas as pd
 
 # Onderstaande regels aanpassen
-vragenlijstnaam = 'FCU - Ouder over Kind 6-10  (1)' # naam van de vragenlijst zoals die genoemd wordt in het export excel bestand
+vragenlijstnaam = 'FCU - Ouder over Kind 11-17 (1)' # naam van de vragenlijst zoals die genoemd wordt in het export excel bestand
 
 df_Def = pd.read_pickle(r"Z:\medewerkers\Elske\FamilyCheckUp\df_ordered_results_{}".format(vragenlijstnaam))
-df_Valuedef = pd.read_pickle(r"Z:\medewerkers\Elske\FamilyCheckUp\df_FCU_ValueLabels_Kind4-5")
+df_Valuedef = pd.read_pickle(r"Z:\medewerkers\Elske\FamilyCheckUp\df_FCU_ValueLabels_{}".format(vragenlijstnaam))
+
 
 
 # in de onderstaande regel wordt de vraag nummer en het antwoord samengevoegd

@@ -4,7 +4,8 @@ import pandas as pd
 import os
 from docx import Document
 
-path = 'Z:\\medewerkers\\Elske\\FamilyCheckUp\\automatiseren bijlagen AST Elske\\Ontwerp Bijlage FCU OuderKind4-5.docx'
+# Onderstaande regels aanpassen
+path = 'Z:\\medewerkers\\Elske\\FamilyCheckUp\\automatiseren bijlagen AST Elske\\Ontwerp Bijlage FCU OuderKind11-17.docx'
 
 document = Document(path)
 
