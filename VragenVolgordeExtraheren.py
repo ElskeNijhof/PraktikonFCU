@@ -4,8 +4,7 @@ import pandas as pd
 import os
 from docx import Document
 
-#os.chdir('Z:\\medewerkers\\Elske\\FamilyCheckUp')
-path = 'Z:\\medewerkers\\Elske\\FamilyCheckUp\\automatiseren bijlagen AST Elske\Ontwerp Bijlage FCU Kind.docx'
+path = 'Z:\\medewerkers\\Elske\\FamilyCheckUp\\automatiseren bijlagen AST Elske\\Ontwerp Bijlage FCU OuderKind4-5.docx'
 
 document = Document(path)
 
@@ -24,9 +23,7 @@ for table in tables:
     for value in table[1].values:
         volgorde.append(value.strip('<<>>'))
 
-#print(volgorde)
-
-volgorde.to_pickle('vragen_volgorde_ruw')
-
+volgorde = [vraag.strip('\n') for vraag in volgorde]
+print(volgorde)
 
 

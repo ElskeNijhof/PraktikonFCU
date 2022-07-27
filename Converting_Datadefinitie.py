@@ -5,7 +5,7 @@ import os
 os.chdir('Z:\\medewerkers\\Elske\\FamilyCheckUp')
 
 # Converten van datadefinitie naar pandas dataframe
-path = 'Z:\\medewerkers\\Elske\\FamilyCheckUp\\automatiseren bijlagen AST Elske\\Datadefinitie FCU Vragenlijst Kind.docx'
+path = 'Z:\\medewerkers\\Elske\\FamilyCheckUp\\automatiseren bijlagen AST Elske\\Datadefinities FCU Ouder over Kind 4-5.docx'
 
 document = Document(path)
 
@@ -20,7 +20,7 @@ for table in document.tables:
     tables.append(pd.DataFrame(df))
 #print(tables)
 
-tables[1].to_pickle('df_FCU_Vragenlijst_Kind')
-tables[2].to_pickle('df_FCU_Kind_ValueLabels')
+tables[1].to_pickle('df_FCU_Vragenlijst_Kind4-5')
+tables[2].to_pickle('df_FCU_ValueLabels_Kind4-5')
 
 print('Done')

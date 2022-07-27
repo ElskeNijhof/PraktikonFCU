@@ -1,7 +1,10 @@
 import pandas as pd
 
-df_Def = pd.read_pickle(r"Z:\medewerkers\Elske\FamilyCheckUp\df_ordered_results")
-df_Valuedef = pd.read_pickle(r"Z:\medewerkers\Elske\FamilyCheckUp\df_FCU_Kind_ValueLabels")
+# Onderstaande regels aanpassen
+vragenlijstnaam = 'FCU - Ouder over Kind 6-10  (1)' # naam van de vragenlijst zoals die genoemd wordt in het export excel bestand
+
+df_Def = pd.read_pickle(r"Z:\medewerkers\Elske\FamilyCheckUp\df_ordered_results_{}".format(vragenlijstnaam))
+df_Valuedef = pd.read_pickle(r"Z:\medewerkers\Elske\FamilyCheckUp\df_FCU_ValueLabels_Kind4-5")
 
 
 # in de onderstaande regel wordt de vraag nummer en het antwoord samengevoegd
@@ -20,15 +23,7 @@ df_Def['Pkey'] = Pkey_Def
 print(df_Def) # Dataframe met de vragen en antwoorden op volgorde waarin ze gesteld worden
 print(df_Valuedef) # Dataframe met de verschillende antwoord mogelijkheden en de bijhorende label (gewenste antwoord)
 
-# Vind code SDQ51 in df_Valuedef
-print(df_Valuedef.loc[df_Valuedef['Pkey'] ==  "SDQ51"])
-
-# Extraheer het gewenste antwoord in plaats van het antwoord code
-antwoord_woord = df_Valuedef.loc[df_Valuedef['Pkey'] ==  "SDQ7R1"][2].values[0]
-print(antwoord_woord)
-
 # Antwoord label vervangen met antwoord code wanneer dat mogelijk is anders orginele antwoord laten staan
-
 df_Vraag_antwoord = pd.DataFrame(columns = ['Vraag', 'Antwoord'])
 print(df_Vraag_antwoord)
 
@@ -49,4 +44,4 @@ for index, row in df_Def.iterrows():
 
 
 print(df_Vraag_antwoord)
-# df_Vraag_antwoord.to_excel('Z:/medewerkers/Elske/FamilyCheckUp/Resultaten/Vraag_Antwoord_Kind.xlsx') # DataFram exporteren naar Excel bestand
+# df_Vraag_antwoord.to_excel('Z:/medewerkers/Elske/FamilyCheckUp/Resultaten/Vraag_Antwoord_{}.xlsx'.format(vragenlijstnaam)) # DataFram exporteren naar Excel bestand
